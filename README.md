@@ -37,6 +37,11 @@ this task can be broken into several sub-tasks
 
 4. reference matching : using the bibliographic components find the reference in an external bibliographic database and retrieve its identifier (eg. Crossref doi, Arxiv number etc...)
 
+
+**N.B**
+
+We plan to use LLM for subtask 2 and substask 3 (below only substast 3, still working on a juypter notebook for finetuning a model for substask 2) 
+
 ### SUBTASK 3: REFERENCE PARSING (Some challenges in reference parsing and our approach) 
 
 
