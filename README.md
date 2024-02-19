@@ -115,5 +115,39 @@ Reference_tagged
 
 `<author>Malaspina EF</author>. <title>History of International Law. Introduction to Swiss Law, Carl Grossmann</title>; <year>2018</year>, p. <page>85–105</page>.`
 
-``
+
+### Processing tagged references 
+
+The returned tagged reference can then be processed with regular expressions to create dictionary
+
+```python
+
+import re
+
+def extract_text_to_json(input_text):
+    # Regular expression to find content between tags, including multiline content
+    pattern = r'<(\w+)>\s*(.*?)\s*</\1>'
+    
+    # Find all matches in the input text
+    matches = re.findall(pattern, input_text, re.DOTALL)
+
+    # Create a dictionary with tags as keys and extracted text as values
+    extracted_data = {tag: text for tag, text in matches}
+    return extracted_data
+
+xref_tagged = '''<author>Smith, W.</author>. <year>1954</year>. <title>William Paley’s Theological Utilitarianism in America</title>. <container-title>The William and Mary Quarterly</container-title>. <volume>11</volume><issue>3</issue>: <page>402</page>.'''
+
+extract_text_to_json(xref_tagged)
+
+{'author': 'Smith, W.',
+ 'year': '1954',
+ 'title': 'William Paley’s Theological Utilitarianism in America',
+ 'volume': '11',
+ 'issue': '3',
+ 'page': '402'}
+
+``` 
+
+
+
 
