@@ -3,7 +3,7 @@ a repo with scripts to finetune an LLM to process bibliographic references of sc
 
 
 
-#### Motivation
+### Motivation
 
 - analyzing references of scholarly documents can reveal insights not only on the documents themselves but on the science/research in general
 
@@ -13,7 +13,7 @@ a repo with scripts to finetune an LLM to process bibliographic references of sc
 
 - With reference processing, we aim to develop a set of tools which, given a document, can extract its references and link them to an external bibliographic database
 
-#### Existing tools
+### Existing tools
 
 - there are several other tools which can be used for this task such as 
 
@@ -25,7 +25,7 @@ a repo with scripts to finetune an LLM to process bibliographic references of sc
 
 - we aim to capitalize on recent advances in large language models to create an easy to train and easy to use sets of tools 
 
-#### Subtasks
+### Subtasks
 
 this task can be broken into several sub-tasks
 
@@ -33,11 +33,13 @@ this task can be broken into several sub-tasks
 
 2. reference segmentation: isolate  each reference / delimit it from others
 
-3. reference parsing: chunk each reference in its bibliographic components (authors, title, publication year, journal/book, page numbers etc ...)
+3. **reference parsing**: chunk each reference in its bibliographic components (authors, title, publication year, journal/book, page numbers etc ...)
 
 4. reference matching : using the bibliographic components find the reference in an external bibliographic database and retrieve its identifier (eg. Crossref doi, Arxiv number etc...)
 
-#### SUBTASK 3: REFERENCE PARSING (Some challenges in reference parsing and our approach) 
+### SUBTASK 3: REFERENCE PARSING (Some challenges in reference parsing and our approach) 
+
+
 
 - different styles (see Citation Style Language (CSL) which lists over 1500 different styles : https://citationstyles.org/) 
 - Efforts required to create good training dataset (especially if one would like to output json with parsed names of authors etc ...
@@ -58,13 +60,55 @@ https://doi.org/10.7910/DVN/LXQXAO
 - the jupyter notebook contains just a proof of concept
 - before pushing the finetuned model to huggingface, we still need to create a better training dataset, which includes also real references (not only synthetic ones) and include also edge cases as well as a better balance of citation styles
 
-   
 
 
+----- 
 
 
+example of what the (minimally) fine-tuned model does: 
 
+For **reference parsing** i.e chunk each reference in its bibliographic components (authors, title, publication year, journal/book, page numbers etc ...) we finetune an LLM to tag the main bibliographic components using html-like tags
 
+**please parse following bibliographic reference into its main components using html-like tags ###reference: {text}**
+
+examples: 
+
+Reference_string 
+
+Gaudy J., Willoughby K., Lamm C., Karavanis E., Logue DN. Possible natural MCF-like disease in a domestic lamb in Scotland: TABLE 1:. Veterinary Record 2012;17122:563.1-563. Doi: 10.1136/vr.101137.
+
+Reference_tagged 
+
+<author>Gaudy J., Willoughby K., Lamm C., Karavanis E., Logue DN.</author> <title>Possible natural MCF-like disease in a domestic lamb in Scotland: TABLE 1:</title>. <container-title>Veterinary Record</container-title> <year>2012</year>;<volume>171</volume><issue>22</issue>:<page>563.1-563</page>. Doi: <DOI>10.1136/vr.101137</DOI>.
+
+--------
+
+Reference_string 
+
+ Smith, W.. 1954. William Paley’s Theological Utilitarianism in America. The William and Mary Quarterly. 113: 402.
+
+Reference_tagged 
+
+<author>Smith, W.</author>. <year>1954</year>. <title>William Paley’s Theological Utilitarianism in America</title>. <container-title>The William and Mary Quarterly</container-title>. <volume>11</volume><issue>3</issue>: <page>402</page>.
+
+--------
+
+Reference_string 
+
+ Jones IG. 1961. The Election of 1868 in Merthyr Tydfil: A Study in the Politics of an Industrial Borough in the Mid-Nineteenth Century. The Journal of Modern History 33: 270–286.
+
+Reference_tagged 
+
+<author>Jones IG</author>. <year>1961</year>. <title>The Election of 1868 in Merthyr Tydfil: A Study in the Politics of an Industrial Borough in the Mid-Nineteenth Century</title>. <container-title>The Journal of Modern History</container-title> <volume>33</volume>: <page>270–286</page>.
+
+--------
+Reference_string 
+
+Malaspina EF. History of International Law. Introduction to Swiss Law, Carl Grossmann; 2018, p. 85–105.
+
+Reference_tagged 
+
+<author>Malaspina EF</author>. <title>History of International Law. Introduction to Swiss Law, Carl Grossmann</title>; <year>2018</year>, p. <page>85–105</page>.
 
 
 
