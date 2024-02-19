@@ -79,12 +79,12 @@ For **reference parsing** i.e chunk each reference in its bibliographic componen
 examples: 
 
 Reference_string 
-
+``
 Gaudy J., Willoughby K., Lamm C., Karavanis E., Logue DN. Possible natural MCF-like disease in a domestic lamb in Scotland: TABLE 1:. Veterinary Record 2012;17122:563.1-563. Doi: 10.1136/vr.101137.
 
 Reference_tagged 
 
-<author>Gaudy J., Willoughby K., Lamm C., Karavanis E., Logue DN.</author> <title>Possible natural MCF-like disease in a domestic lamb in Scotland: TABLE 1:</title>. <container-title>Veterinary Record</container-title> <year>2012</year>;<volume>171</volume><issue>22</issue>:<page>563.1-563</page>. Doi: <DOI>10.1136/vr.101137</DOI>.
+`<author>Gaudy J., Willoughby K., Lamm C., Karavanis E., Logue DN.</author> <title>Possible natural MCF-like disease in a domestic lamb in Scotland: TABLE 1:</title>. <container-title>Veterinary Record</container-title> <year>2012</year>;<volume>171</volume><issue>22</issue>:<page>563.1-563</page>. Doi: <DOI>10.1136/vr.101137</DOI>.`
 
 --------
 
@@ -94,7 +94,7 @@ Reference_string
 
 Reference_tagged 
 
-<author>Smith, W.</author>. <year>1954</year>. <title>William Paley’s Theological Utilitarianism in America</title>. <container-title>The William and Mary Quarterly</container-title>. <volume>11</volume><issue>3</issue>: <page>402</page>.
+`<author>Smith, W.</author>. <year>1954</year>. <title>William Paley’s Theological Utilitarianism in America</title>. <container-title>The William and Mary Quarterly</container-title>. <volume>11</volume><issue>3</issue>: <page>402</page>.`
 
 --------
 
@@ -104,7 +104,7 @@ Reference_string
 
 Reference_tagged 
 
-<author>Jones IG</author>. <year>1961</year>. <title>The Election of 1868 in Merthyr Tydfil: A Study in the Politics of an Industrial Borough in the Mid-Nineteenth Century</title>. <container-title>The Journal of Modern History</container-title> <volume>33</volume>: <page>270–286</page>.
+`<author>Jones IG</author>. <year>1961</year>. <title>The Election of 1868 in Merthyr Tydfil: A Study in the Politics of an Industrial Borough in the Mid-Nineteenth Century</title>. <container-title>The Journal of Modern History</container-title> <volume>33</volume>: <page>270–286</page>.`
 
 --------
 Reference_string 
@@ -113,7 +113,7 @@ Malaspina EF. History of International Law. Introduction to Swiss Law, Carl Gros
 
 Reference_tagged 
 
-<author>Malaspina EF</author>. <title>History of International Law. Introduction to Swiss Law, Carl Grossmann</title>; <year>2018</year>, p. <page>85–105</page>.
+`<author>Malaspina EF</author>. <title>History of International Law. Introduction to Swiss Law, Carl Grossmann</title>; <year>2018</year>, p. <page>85–105</page>.`
 
-
+``
 
